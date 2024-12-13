@@ -1,29 +1,29 @@
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
-name: Run test for oml
+name: Run test for oml-empowered
 
-env:
-  target: oml
+# env:
+#   target: oml
 
 on:
   pull_request:
     types: [opened, reopened, synchronize]
-    paths:
-      - 'oml/**'
-      - '.github/workflows/test-oml.yml'
+    # paths:
+    #   - 'oml/**'
+    #   - '.github/workflows/test-oml.yml'
   push:
     branches: main
-    paths:
-      - 'oml/**'
-      - '.github/workflows/test-oml.yml'
+    # paths:
+    #   - 'oml/**'
+    #   - '.github/workflows/test-oml.yml'
   schedule:
     - cron:  '45 21 * * 5'
   workflow_dispatch:
 
 defaults:
   run:
-    working-directory: oml
+    working-directory: .
 
 permissions:
   contents: read
