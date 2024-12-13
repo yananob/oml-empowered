@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu
 
-DEPLOY_DIR=_deploy
+WORK_DIR=_deploy
 # export SCRIPT_NAME=$1
 # remove "/" on the right side
 SCRIPT_NAME=oml
@@ -33,8 +33,8 @@ cd ..
 
 echo "Starting to deploy $SCRIPT_NAME"
 
-mkdir -p $DEPLOY_DIR
-pushd $DEPLOY_DIR
+mkdir -p $WORK_DIR
+pushd $WORK_DIR
 
 rm -rf ./$SCRIPT_NAME
 rsync -vaL --exclude-from=../_misc/deploy/rsync_exclude.conf ../$SCRIPT_NAME ./
