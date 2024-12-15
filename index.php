@@ -2,6 +2,8 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 
+use Google\CloudFunctions\FunctionsFramework;
+use Psr\Http\Message\ServerRequestInterface;
 use yananob\MyTools\Logger;
 use yananob\MyTools\Utils;
 use yananob\MyGcpTools\CFUtils;
@@ -13,8 +15,8 @@ use MyApp\Command;
 use MyApp\Oml;
 use MyApp\RssType;
 
-Google\CloudFunctions\FunctionsFramework::http('main', 'main');
-function main(Psr\Http\Message\ServerRequestInterface $request): string
+FunctionsFramework::http('main', 'main');
+function main(ServerRequestInterface $request): string
 {
     $logger = new Logger("oml");
     $params = $request->getQueryParams();
